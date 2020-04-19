@@ -10,5 +10,5 @@ from file_read import *
 
 if __name__ == '__main__':
     opcodes, asm_file_seq = get_opcodes()
-    opcodes_count(opcodes, asm_file_seq)
+    matrix_list = opcodes_count(opcodes, asm_file_seq)
     print('testline')

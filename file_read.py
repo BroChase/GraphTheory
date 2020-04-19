@@ -33,7 +33,19 @@ def get_opcodes():
 
 
 def opcodes_count(opcodes, asm_file_seq):
-    w_list = []
+    """
+    Receives OpCodes and assembly file OpCode sequences and creats nested dictionaries in order to create
+    a matrix_list to create a matrix W that is OpCode x OpCode in size.
+    :param opcodes: list of unique OpCodes include in all ASM files
+    :param asm_file_seq: sequence of OpCodes of each assembly file in ASM directory
+    :return: list of dictionaries(with nested dictionaries) each from an assembly files OpCode sequence
+    """
+    matrix_list = []
     for asm in asm_file_seq:
-        op_count = dict.fromkeys(opcodes, dict.fromkeys(opcodes, 0))
-        l = len(asm)
+        d = {}
+        for op in opcodes:
+            d[op] = dict.fromkeys(opcodes, 0)
+        for i in range(len(asm) -1):
+            d[asm[i]][asm[i+1]] += 1
+        matrix_list.append(d)
+    return matrix_list
