@@ -1,4 +1,3 @@
-# Read ASM files from ASM folder
 import os
 import re
 
