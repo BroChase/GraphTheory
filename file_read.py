@@ -25,7 +25,7 @@ def get_opcodes():
                         except IndexError:
                             print('Index Error')
                 except IndexError:
-                    print('Index Error')
+                    print('Not OpCode')
         asm_files_seq.append(seq_list)
         f.close()
     return opcodes, asm_files_seq
