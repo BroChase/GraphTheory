@@ -2,6 +2,11 @@ import numpy as np
 
 
 def to_matrix(d):
+    """
+    Generates matrices from nested dictionaries
+    :param d: Dict of Dict
+    :return: list of numpy matrices
+    """
     # For each assembly file
     matrix_list = []
     for asm in d:
@@ -21,6 +26,11 @@ def to_matrix(d):
 
 
 def sequence_probabilities(m):
+    """
+    From the list of matrices generates the probability matrix for each adjacency matrix listed in m
+    :param m: List of adjacency matrices
+    :return: list of probability matrices
+    """
     w_matrix = []
     for matrix in m:
         s = np.sum(matrix, axis=1)  # Find the sums of each row in the matrix
@@ -34,6 +44,12 @@ def sequence_probabilities(m):
 
 
 def power_iteration(w):
+    """
+    From the list of adjacency matrices from a graph G performs a power iteration method to embed the graph G into a
+    vector space v of fixed length
+    :param w: List of adjacency matrices
+    :return: returns a list of vectors, one per graph in W
+    """
     vectors = []
     for matrix in w:
         matrix_sum = np.sum(matrix)  # Find the sum of the matrix
